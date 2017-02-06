@@ -24,7 +24,9 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'bootstrap'
 gem 'simple_form'
-gem  'htmlentities'
+gem 'htmlentities'
+gem 'bootstrap-generators'
+gem 'record_tag_helper'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
