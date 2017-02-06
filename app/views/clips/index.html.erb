@@ -5,45 +5,20 @@
   <% end %>
   <h1>Listing clips</h1>
 </div>
-
-<div class="table-responsive">
-  <table class="table table-striped table-bordered table-hover">
-    <thead>
-      <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Quote</th>
-            <th>Commentary</th>
-            <th>Link</th>
-            <th>Link date</th>
-            <th>Pub date</th>
-            <th>Source name</th>
-            <th>Source url</th>
-            <th>Fetch response</th>
-            <th>Fetch date</th>
-            <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <%= content_tag_for(:tr, @clips) do |clip| %>
-            <td><%= clip.title %></td>
-            <td><%= clip.description %></td>
-            <td><%= clip.quote %></td>
-            <td><%= clip.commentary %></td>
-            <td><%= clip.link %></td>
-            <td><%= clip.link_date %></td>
-            <td><%= clip.pub_date %></td>
-            <td><%= clip.source_name %></td>
-            <td><%= clip.source_url %></td>
-            <td><%= clip.fetch_response %></td>
-            <td><%= clip.fetch_date %></td>
-            <td><%= link_to 'Show', clip %></td>
-        <td><%= link_to 'Edit', edit_clip_path(clip) %></td>
-        <td><%= link_to 'Destroy', clip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-    </tbody>
-  </table>
+<div class="cliplist">
+<% @clips.each do |clip| %>
+	<div class="row">
+		<div class="col-sm-9">
+			<h3><%= link_to clip.title, clip.link %></h3>
+			<div><%= clip.description %></div>
+			<div><blockquote><%= clip.quote %></blockquote></div>
+		</div>
+		<div class="col-sm-3">
+          <td><%= link_to 'Show', clip, {class: 'btn btn-default'} %></td>
+      <td><%= link_to 'Edit', edit_clip_path(clip),  {class: 'btn btn-info'}  %></td>
+      <td><%= link_to 'Destroy', clip, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }  %></td>
+			
+		</div>
+	</div>
+<% end %>
 </div>

@@ -14,7 +14,16 @@
 
 
 @import "bootstrap";
+@import "bootstrap-variables";
 
 body {
   padding-top: 4em;
+	font-family: $font-family-serif;
 }
+.cliplist blockquote {
+	font-size:0.8em;
+	line-spacing: auto;
+	font-style: italic;
+	color: $gray-light;
+}
+
