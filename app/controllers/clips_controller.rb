@@ -14,7 +14,11 @@ class ClipsController < ApplicationController
 
   # GET /clips/new
   def new
-    @clip = Clip.new
+    if params[:url]
+      @clip = Clip.new_from_url(params[:url])
+    else
+      @clip = Clip.new
+    end
   end
 
   # GET /clips/1/edit
