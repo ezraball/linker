@@ -1,0 +1,22 @@
+<%= simple_form_for @clip do |f| %>
+<%# simple_form_for(@clip) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :quote %>
+    <%= f.input :commentary %>
+    <%= f.input :link %>
+    <%= f.input :link_date %>
+    <%= f.input :pub_date %>
+    <%= f.input :source_name %>
+    <%= f.input :source_url %>
+    <%= f.input :fetch_response %>
+    <%= f.input :fetch_date %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

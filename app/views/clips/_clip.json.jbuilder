@@ -1,0 +1,2 @@
+json.extract! clip, :id, :title, :description, :quote, :commentary, :link, :link_date, :pub_date, :source_name, :source_url, :fetch_response, :fetch_date, :created_at, :updated_at
+json.url clip_url(clip, format: :json)

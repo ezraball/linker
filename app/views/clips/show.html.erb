@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @clip.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @clip.description %>
+</p>
+
+<p>
+  <strong>Quote:</strong>
+  <%= @clip.quote %>
+</p>
+
+<p>
+  <strong>Commentary:</strong>
+  <%= @clip.commentary %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @clip.link %>
+</p>
+
+<p>
+  <strong>Link date:</strong>
+  <%= @clip.link_date %>
+</p>
+
+<p>
+  <strong>Pub date:</strong>
+  <%= @clip.pub_date %>
+</p>
+
+<p>
+  <strong>Source name:</strong>
+  <%= @clip.source_name %>
+</p>
+
+<p>
+  <strong>Source url:</strong>
+  <%= @clip.source_url %>
+</p>
+
+<p>
+  <strong>Fetch response:</strong>
+  <%= @clip.fetch_response %>
+</p>
+
+<p>
+  <strong>Fetch date:</strong>
+  <%= @clip.fetch_date %>
+</p>
+
+<%= link_to 'Edit', edit_clip_path(@clip) %> |
+<%= link_to 'Back', clips_path %>
