@@ -7,8 +7,10 @@
   
   <%= link_to clips_path(format: 'md' ), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-download"></span>
-    New Clip
+    Download index as MD
   <% end %>
+  
+  
   
   
   <h1>Listing clips</h1>
@@ -18,7 +20,11 @@
 	<div class="row">
 		<div class="col-sm-9">
 			<h3><%= link_to clip.title, clip.link %></h3>
-			<div><%= clip.description %></div>
+			<div class="source">
+				<strong><%= link_to clip.source, clip.source.url %></strong> &nbsp;
+				<div><%= clip.description %></div>
+			</div>
+			
 			<div><blockquote><%= clip.quote %></blockquote></div>
 		</div>
 		<div class="col-sm-3">
