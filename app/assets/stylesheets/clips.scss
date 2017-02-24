@@ -6,3 +6,15 @@ blockquote {
 	font-size:0.7em;
 	line-spacing: auto;
 }
+
+
+.time {
+	font-family: $font-family-sans-serif;
+	color:$gray-light;
+}
+
+.sourcename {
+	font-weight:bold;
+	font-family:  $font-family-sans-serif;
+	color:$gray;
+}

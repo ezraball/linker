@@ -16,23 +16,33 @@
   <h1>Listing clips</h1>
 </div>
 <div class="cliplist">
+<% last_date = ""  %>
 <% @clips.each do |clip| %>
 	<div class="row">
-		<div class="col-sm-9">
-			<h3><%= link_to clip.title, clip.link %></h3>
-			<div class="source">
-				<strong><%= link_to clip.source_name, clip.source_url %></strong> &nbsp;
-				<div><%= clip.description %></div>
-			</div>
-			
-			<div><blockquote><%= clip.quote %></blockquote></div>
-		</div>
 		<div class="col-sm-3">
-          <td><%= link_to 'Show', clip, {class: 'btn btn-default'} %></td>
-      <td><%= link_to 'Edit', edit_clip_path(clip),  {class: 'btn btn-info'}  %></td>
-      <td><%= link_to 'Destroy', clip, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }  %></td>
-			
+			<h4>
+				<% if last_date != clip.link_date.to_date %>
+					<%= clip.link_date.strftime("%A %m %d %Y") %>
+				<% end %>
+			</h4>
+		</div>
+		<div class="col-sm-6" >
+			<h4><%= link_to clip.title, clip.link %></h4>
+			<div class="source">
+				<span class="time"><%= clip.link_date.strftime("%H:%M") %></span>
+				<%= link_to clip.source_name, clip.source_url, class: 'sourcename' %>
+				<%= content_tag(:div, clip.description.html_safe) unless clip.description.blank? %>
+				<%= content_tag(:div, content_tag(:blockquote, clip.quote.html_safe)) unless clip.quote.blank? %>
+				<div><%= clip.commentary %></div>
+				
+			</div>
+		</div>
+		
+		<div class="col-sm-1">
+			<td><%= link_to glyphicon('pencil'), edit_clip_path(clip),  {class: 'btn btn-info btn-xs'}  %></td>
 		</div>
 	</div>
+	<% last_date = clip.link_date.to_date %>
+	
 <% end %>
 </div>

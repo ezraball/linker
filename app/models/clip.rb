@@ -1,6 +1,7 @@
 class Clip < ApplicationRecord
   validates :title, presence: true
   serialize :fetch_response
+  default_scope { order(created_at: :desc) }
     
   def self.new_from_url(url,user = nil)
     clip = Clip.new
