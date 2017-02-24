@@ -18,6 +18,9 @@
 <div class="cliplist">
 <% last_date = ""  %>
 <% @clips.each do |clip| %>
+	<% if last_date != clip.link_date.to_date %>
+	<div class="row spacerow"></div>
+	<% end %>
 	<div class="row">
 		<div class="col-sm-3">
 			<h4>
@@ -26,9 +29,10 @@
 				<% end %>
 			</h4>
 		</div>
-		<div class="col-sm-6" >
+		<div class="col-sm-9" >
 			<h4><%= link_to clip.title, clip.link %></h4>
 			<div class="source">
+				<%= link_to glyphicon('pencil'), edit_clip_path(clip),  {class: 'btn btn-info btn-xs'}  %>
 				<span class="time"><%= clip.link_date.strftime("%H:%M") %></span>
 				<%= link_to clip.source_name, clip.source_url, class: 'sourcename' %>
 				<%= content_tag(:div, clip.description.html_safe) unless clip.description.blank? %>
@@ -38,9 +42,6 @@
 			</div>
 		</div>
 		
-		<div class="col-sm-1">
-			<td><%= link_to glyphicon('pencil'), edit_clip_path(clip),  {class: 'btn btn-info btn-xs'}  %></td>
-		</div>
 	</div>
 	<% last_date = clip.link_date.to_date %>
 	
